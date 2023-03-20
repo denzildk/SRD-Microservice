@@ -7,13 +7,14 @@
 <body>
     <h1>Weapons</h1>
     <ul>
-        <?php foreach ($weapons as $weapon): ?>
+        <?php foreach ($_POST['weapons'] as $weapon): ?>
             <li>
                 <h2><?= $weapon['name'] ?></h2>
                 <ul>
-                    <li>Cost: <?= $weapon['cost'] ?></li>
+                    <li>Cost: <?= $weapon['cost'] ?>c</li>
                     <li>Type: <?= $weapon['weapon_type'] ?></li>
                     <li>Damage: <?= $weapon['damage'] ?></li>
+                    <li>Damage Type: <?= $weapon['damage_type'] ?></li>
                     <li>Properties: <?= $weapon['properties'] ?></li>
                 </ul>
             </li>

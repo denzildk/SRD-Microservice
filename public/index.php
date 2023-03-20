@@ -8,6 +8,6 @@ require_once '../api/controllers/Weapon.php';
 $weaponsController = new WeaponsController();
 
 // Call the index method to handle the request
-$weaponsController->index();
+$weaponsController->view();
 
 ?>

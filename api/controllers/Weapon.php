@@ -12,8 +12,7 @@ class WeaponsController {
         $this->weapon = new Weapon($this->db->getConnection());
     }
 
-    // Handle the incoming request
-    public function index() {
+    private function getData(){
         $stmt = $this->weapon->getAll();
         $data = array();
 
@@ -24,13 +23,27 @@ class WeaponsController {
                 "cost" => $cost,
                 "weapon_type" => $weapon_type,
                 "damage" => $damage,
+                "damage_type" => $damage_type,
                 "properties" => $properties
             );
             array_push($data, $weapon);
         }
+        return $data;
+    }
+
+    // Handle the incoming request
+    public function index() {
+        $data = $this->getData();
 
         header('Content-Type: application/json');
         echo json_encode($data);
+    }
+    public function view() {
+        $data = $this->getData();
+
+        //echo var_dump($data);
+        $_POST['weapons'] = $data;
+        require_once '../api/views/weapon.php';
     }
 }
 
