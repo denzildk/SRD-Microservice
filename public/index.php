@@ -6,8 +6,12 @@ require_once '../api/controllers/Weapon.php';
 
 // Create a new instance of the controller
 $weaponsController = new WeaponsController();
-
+$request = explode('.',$_SERVER['SERVER_NAME'])[0];
 // Call the index method to handle the request
-$weaponsController->view();
+if ($request === "api") {
+    $weaponsController->index();
+} else {
+    $weaponsController->view();
+}
 
 ?>
