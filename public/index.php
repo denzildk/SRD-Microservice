@@ -1,8 +1,20 @@
 <?php
 
+// Autoloader
+require_once '../vendor/autoload.php';
+
+// Load Config
+require_once '../config/config.php';
+
+// Routes
+require_once '../routes/web.php';
+require_once '../app/Router.php';
+
+/*
 //require_once '../config/Database.php';
 //require_once '../api/models/Weapon.php';
-require_once '../api/controllers/Weapon.php';
+//require_once '../app/controllers/Weapon.php';
+use app\Controllers\WeaponsController;
 
 // Create a new instance of the controller
 $weaponsController = new WeaponsController();
@@ -13,5 +25,5 @@ if ($request === "api") {
 } else {
     $weaponsController->view();
 }
-
+*/
 ?>

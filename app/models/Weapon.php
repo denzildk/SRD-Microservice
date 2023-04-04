@@ -1,4 +1,5 @@
 <?php
+namespace app\Models;
 
 class Weapon {
     private $conn;
@@ -9,7 +10,7 @@ class Weapon {
 
     // Retrieve all weapons from the database
     public function getAll() {
-        $query = "SELECT * FROM allweapons";
+        $query = "SELECT * FROM v_weapons";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;
