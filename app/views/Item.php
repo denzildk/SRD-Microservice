@@ -18,8 +18,8 @@
         <h1>My Item:</h1>
         <ul>
             <li><?php echo $item->getName(); ?></li>
-            <li><?php echo $item->getWeight(); ?></li>
-            <li><?php echo $item->getCost(); ?></li>
+            <li><?php echo $item->getWeight() . ' lb'; ?></li>
+            <li><?php echo $item->getCost() . 'c'; ?></li>
         </ul>
         <a href="<?php echo $routes->get('homepage')->getPath(); ?>">Back to homepage</a>
     <section>

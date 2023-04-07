@@ -1,13 +1,16 @@
 <?php
 namespace app\Controllers;
 
-class WeaponsController {
+use App\Models\weapon;
+use App\Models;
+
+class WeaponController {
     private $db;
     private $weapon;
 
     public function __construct() {
-        require_once '../config/Database.php';
-        require_once '../api/models/Weapon.php';
+        //require_once '../config/Database.php';
+        //require_once '../api/models/Weapon.php';
 
         $this->db = new Database();
         $this->weapon = new Weapon($this->db->getConnection());

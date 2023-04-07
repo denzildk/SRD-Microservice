@@ -1,6 +1,8 @@
 <?php 
 namespace App\Models;
 
+//use App\Models\Database;
+
 class Item
 {
     protected $id;
@@ -49,19 +51,33 @@ class Item
     }
 
     // CRUD OPERATIONS
-    public function create(array $data)
+    public static function create(array $data)
     {
         
     }
 
-    public function read(int $id)
+    public static function readAll()
     {
-        $this->id = $id;
-        $this->name ='club';
-        $this->weight = '200';
-        $this->cost = '20';
+        $db = new Database();
+        $conn = $db->getConnection();
 
-        return $this;
+
+    }
+
+    public static function read(int $id)
+    {
+        $db = new Database();
+        $stmt = $db->runQuery('select * from v_Items where id=' . $id);
+        //var_dump($stmt);
+        $data = $stmt->fetch();
+        //var_dump($data);
+        $item = new Item();
+        $item->setId($data['id']);
+        $item->setName($data['name']);
+        $item->setWeight($data['weight']);
+        $item->setCost($data['cost']);
+
+        return $item;
     }
 
     public function update(int $id, array $data)

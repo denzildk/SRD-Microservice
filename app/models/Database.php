@@ -1,12 +1,20 @@
 <?php
+namespace App\Models;
+
+use PDO;
+use PDOException;
 
 class Database {
-    private $host = "localhost";
-    private $db_name = "srd5_1";
-    private $username = "root";
-    private $password = "";
+    private $host = DB_HOST;
+    private $db_name = DB_NAME;
+    private $username = DB_USER;
+    private $password = DB_PASS;
     public $conn;
 
+    public function __construct()
+    {
+        $this->conn = $this->getConnection();
+    }
     // Get the database connection
     public function getConnection() {
         $this->conn = null;
@@ -23,6 +31,13 @@ class Database {
         }
 
         return $this->conn;
+    }
+
+    public function runQuery(string $query)
+    {
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
     }
 }
 
