@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // Retrieve data from the view
-$sql = "SELECT * FROM allweapons";
+$sql = "SELECT * FROM vs_weapons";
 $result = $conn->query($sql);
 
 // Create an empty array to hold the results

@@ -10,7 +10,7 @@ class Weapon {
 
     // Retrieve all weapons from the database
     public function getAll() {
-        $query = "SELECT * FROM v_weapons";
+        $query = "SELECT * FROM vs_weapons";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt;

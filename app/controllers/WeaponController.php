@@ -2,7 +2,7 @@
 namespace app\Controllers;
 
 use App\Models\weapon;
-use App\Models;
+use App\Models\Database;
 
 class WeaponController {
     private $db;
@@ -20,7 +20,7 @@ class WeaponController {
         $stmt = $this->weapon->getAll();
         $data = array();
 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch_assoc()) {
             extract($row);
             $weapon = array(
                 "name" => $name,

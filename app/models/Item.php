@@ -67,7 +67,7 @@ class Item
     public static function read(int $id)
     {
         $db = new Database();
-        $stmt = $db->runQuery('select * from v_Items where id=' . $id);
+        $stmt = $db->runQuery('select * from vs_items where id=' . $id);
         //var_dump($stmt);
         $data = $stmt->fetch();
         //var_dump($data);
